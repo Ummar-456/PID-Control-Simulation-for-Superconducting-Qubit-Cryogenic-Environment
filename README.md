@@ -50,8 +50,7 @@ To explore a formal, automated tuning approach, the classic Ziegler-Nichols Reac
 3.  **Gain Calculation:** These parameters were used with the Z-N tuning table to calculate the PID gains automatically.
 
 The plot below shows the automated analysis of the reaction curve.
-
-![2](https://github.com/user-attachments/assets/4af9f91b-e653-4c60-a08e-58bc2843953d)
+![3](https://github.com/user-attachments/assets/dd1a6b03-d546-4287-a87b-114de3215436)
 
 
 ## 4. Results & Critical Analysis
