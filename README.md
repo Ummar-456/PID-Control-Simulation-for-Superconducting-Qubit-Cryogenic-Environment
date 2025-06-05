@@ -42,12 +42,16 @@ A PID controller was designed and implemented in Python to maintain the setpoint
 
 ### 3.1 Manual Tuning
 
-An iterative, manual tuning process was used to understand the effect of each PID term. This involved first tuning the Proportional gain ($K_p$) for a fast response, then adding the Integral gain ($K_i$) to eliminate steady-state error, and finally adding the Derivative gain ($K_d$) to dampen oscillations and reduce overshoot. This practical approach resulted in a stable and functional controller, as shown in the PI controller response below.
+### 3.1 Manual Tuning
 
-*<p align="center">Figure 1: A manually tuned PI controller (`Kp=0.001, Ki=0.0008`) successfully eliminates steady-state error but introduces overshoot and oscillations.</p>*
+An iterative, manual tuning process was used to understand the effect of each PID term. This involved first tuning the Proportional ($K_p$) for a fast response, then adding the Integral ($K_i$) to eliminate steady-state error, and finally adding the Derivative ($K_d$) to dampen oscillations and reduce overshoot. This practical approach resulted in a stable and functional controller.
+
+*<p align="center">Figure 1: A well-behaved controller achieved through careful manual tuning of PID gains.</p>*
 <p align="center">
-  <img src="![1](https://github.com/user-attachments/assets/404ca5cb-b129-4cb8-a7e9-e910981616e5)" width="800">
+  <img src="https://github.com/user-attachments/assets/404ca5cb-b129-4cb8-a7e9-e910981616e5" width="800">
 </p>
+
+### 3.2 Ziegler-Nichols (Z-N) Method
 
 ### 3.2 Ziegler-Nichols (Z-N) Method
 
@@ -55,10 +59,10 @@ To explore a formal heuristic approach, the classic Ziegler-Nichols Reaction Cur
 
 *<p align="center">Figure 2: Automated analysis of the open-loop step response to find Z-N parameters.</p>*
 <p align="center">
-  <img src="![3](https://github.com/user-attachments/assets/1323e75e-8c20-475f-9b3f-b3c74744c59f)" width="600">
+  <img src="https://github.com/user-attachments/assets/1323e75e-8c20-475f-9b3f-b3c74744c59f" width="600">
 </p>
-![3](https://github.com/user-attachments/assets/1323e75e-8c20-475f-9b3f-b3c74744c59f)
 
+These parameters were then used to calculate the PID gains according to the Z-N tuning table.
 
 These parameters were then used to calculate the PID gains according to the Z-N tuning table.
 
@@ -68,22 +72,25 @@ As the most advanced approach, an "auto-tuner" was developed using the `scipy.op
 
 ## 4. Results & Critical Analysis
 
+## 4. Results & Critical Analysis
+
 The three tuning methods yielded dramatically different results, providing key insights into control system design.
 
 The Ziegler-Nichols method produced highly aggressive gains (`Kp=1.025, Ki=0.900, Kd=0.292`), resulting in an **unstable controller** with severe oscillations and heater "chattering," as seen below.
 
 *<p align="center">Figure 3: The unstable and oscillatory response from the Z-N tuned controller.</p>*
 <p align="center">
-  <img src="![2](https://github.com/user-attachments/assets/0876d750-2f18-4335-9e88-56ddd9d9a545)" width="800">
+  <img src="https://github.com/user-attachments/assets/0876d750-2f18-4335-9e88-56ddd9d9a545" width="800">
 </p>
-*(**Note:** Replace with the path to your unstable Z-N plot, from the file `2.png`.)*
 
 This outcome demonstrates a limitation of the Z-N heuristic for systems with a low time-delay-to-time-constant ratio. In contrast, the **auto-tuner successfully found optimal gains (`Kp=0.001, Ki=0.0008, Kd=0.0021`)** that produced an excellent response.
 
 *<p align="center">Figure 4: The high-performance response from the auto-tuned PID controller.</p>*
 <p align="center">
-  <img src="![4](https://github.com/user-attachments/assets/e0ec7d2a-9f22-4e8f-9596-3fce3beb9e6a)" width="800">
+  <img src="https://github.com/user-attachments/assets/e0ec7d2a-9f22-4e8f-9596-3fce3beb9e6a" width="800">
 </p>
+
+The auto-tuned controller is clearly superior. It exhibits a fast response, minimal overshoot, quick settling time, and robustly rejects disturbances, even in the presence of sensor noise.
 
 
 The auto-tuned controller is clearly superior. It exhibits a fast response, minimal overshoot, quick settling time, and robustly rejects disturbances, even in the presence of sensor noise.
