@@ -58,7 +58,8 @@ The plot below shows the automated analysis of the reaction curve.
 
 The PID gains calculated by the Ziegler-Nichols method were found to be `Kp=1.025, Ki=0.900, Kd=0.292`. When these gains were applied to the system, the controller was highly aggressive and unstable, resulting in sustained, high-frequency oscillations and heater "chattering."
 
-![image](https://github.com/user-attachments/assets/531047cf-1696-457c-a91d-dc807a156f28)
+![2](https://github.com/user-attachments/assets/651d545c-abc1-423b-a727-f8b98013f3a6)
+
 
 
 This result, while producing an unstable controller, is a key success of the project. It demonstrates a critical engineering insight: heuristic tuning rules like Ziegler-Nichols can perform poorly on systems with a low time-delay-to-time-constant ratio ($\L/\tau$), which is characteristic of this thermal model. The resulting aggressive gains are unsuitable for a sensitive quantum application.
