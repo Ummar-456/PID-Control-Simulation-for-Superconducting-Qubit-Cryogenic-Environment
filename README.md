@@ -51,8 +51,8 @@ To explore a formal, automated tuning approach, the classic Ziegler-Nichols Reac
 
 The plot below shows the automated analysis of the reaction curve.
 
-*(Insert your Z-N analysis plot here)*
-`![Ziegler-Nichols Reaction Curve Analysis](Screenshot_2025-06-04_114958.png)`
+![2](https://github.com/user-attachments/assets/4af9f91b-e653-4c60-a08e-58bc2843953d)
+
 
 ## 4. Results & Critical Analysis
 
