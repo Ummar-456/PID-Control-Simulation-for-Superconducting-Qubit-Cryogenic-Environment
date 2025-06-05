@@ -2,7 +2,7 @@ import numpy as np
 from scipy.integrate import solve_ivp
 import matplotlib.pyplot as plt
 
-# --- Model Parameters (Illustrative) ---
+# --- Model Parameters
 C_mxc = 0.5      # Thermal capacitance of MXC stage (J/K)
 T0_mxc = 0.010   # Sink temperature / Base temperature MXC would cool to (K)
 R_eff_mxc = 50.0 # Effective thermal resistance (K/W)
@@ -18,7 +18,7 @@ T_initial_mxc = 0.010 # Assume MXC starts at the sink temperature (K)
 dt = 1.0      # Time step for PID controller and simulation (seconds)
 sim_time = 600 # Total simulation time (seconds)
 
-# --- Disturbance Load (Optional) ---
+# --- Disturbance Load 
 def disturbance_load(t):
     if t > 300 and t < 350: # Introduce a disturbance
         return 0.00005 # 50 uW disturbance
